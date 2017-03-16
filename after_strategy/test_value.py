@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
 import after_hours
-
-from urllib.parse import parse_qs
 from math import *
-
+import datetime
 ticker ="ibm"
+
+now = datetime.datetime.now()
+today = "{0}-{1}-{2}".format(now.year,str(now.month).zfill(2),str(now.day).zfill(2))
+print (today)
 
 trades= after_hours.ah_all(ticker)[2]
 open=trades[0]
