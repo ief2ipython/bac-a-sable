@@ -15,7 +15,7 @@ class ParticleSimulator:
     def evolve(self, dt):
         timestep = 0.00001
         nsteps = int(dt/timestep)
-        
+        @profile
         for i in range(nsteps):
             for p in self.particles:
 
