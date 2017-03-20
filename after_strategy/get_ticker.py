@@ -24,25 +24,18 @@ for ticker in content:
     except AttributeError:
         pass
 
-    stock = (yahoo.get_historical('2007-01-01', today))
+    stock = (yahoo.get_historical('2017-03-17', today))
 
     for st in stock :
         row= []
         print (st)
-        st_symbol = st['Symbol']
-        row.append(st_symbol)
-        st_date   = st['Date']
-        row.append(st_date)
-        st_open   = st['Open']
-        row.append(st_open)
-        st_close  = st['Close']
-        row.append(st_close)
-        st_high   = st['High']
-        row.append(st_high)
-        st_low    = st['Low']
-        row.append(st_low)
-        st_volume = st['Volume']
-        row.append(st_volume)
+        row.append(st['Date'])
+        row.append(st['Symbol'])
+        row.append(st['Open'])
+        row.append(st['Close'])
+        row.append(st['High'])
+        row.append(st['Low'])
+        row.append(st['Volume'])
         try:
             sql= '''INSERT INTO stocks(stock_date,ticker,open,close,high,low,volume)
                        VALUES (?,?,?,?,?,?,?)'''
